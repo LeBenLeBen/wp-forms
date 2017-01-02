@@ -41,6 +41,13 @@ abstract class WP_Form_Element_Multiple extends WP_Form_Element {
 		array_walk( $options, create_function( '&$v, $k', '$v = $v[2];'));
 		return $options;
 	}
+
+	public function get_selected() {
+	  if ( !empty($this->value) ) {
+	    return $this->value;
+	  }
+	  return $this->default_value;
+	}
 }
 
 class WP_Form_Element_Option {
